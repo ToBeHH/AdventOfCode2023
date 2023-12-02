@@ -1,7 +1,7 @@
 /**
  * Main method to read the file and give the result
  */
-fun main(args: Array<String>) {
+fun main() {
     // read file sample.txt
     val fileName = "/day01input.txt"
     val lines = object {}.javaClass.getResourceAsStream(fileName)?.bufferedReader()?.readLines()
@@ -19,14 +19,14 @@ fun main(args: Array<String>) {
 
 /**
  * Get from the line the first digit and the last digit
- * and form a two digit number
+ * and form a two-digit number
  *
  * @param line the line to get the digits
- * @return the two digit number
+ * @return the two-digit number
  */
 fun getInts(line: String): Int {
     var firstDigit = 0
-    for (i in 0..line.length - 1) {
+    for (i in line.indices) {
         if (line[i].isDigit()) {
             firstDigit = line[i].toString().toInt()
             break
@@ -44,101 +44,43 @@ fun getInts(line: String): Int {
 
 /**
  * Get from the line the first digit and the last digit
- * and form a two digit number
+ * and form a two-digit number
  *
  * @param line the line to get the digits
- * @return the two digit number
+ * @return the two-digit number
  */
 fun getIntsWithText(line: String): Int {
     var firstDigit = 0
-    for (i in 0..line.length - 1) {
-        when {
-            line.substring(i).startsWith("one") -> {
-                firstDigit = 1
-                break
-            }
-            line.substring(i).startsWith("two") -> {
-                firstDigit = 2
-                break
-            }
-            line.substring(i).startsWith("three") -> {
-                firstDigit = 3
-                break
-            }
-            line.substring(i).startsWith("four") -> {
-                firstDigit = 4
-                break
-            }
-            line.substring(i).startsWith("five") -> {
-                firstDigit = 5
-                break
-            }
-            line.substring(i).startsWith("six") -> {
-                firstDigit = 6
-                break
-            }
-            line.substring(i).startsWith("seven") -> {
-                firstDigit = 7
-                break
-            }
-            line.substring(i).startsWith("eight") -> {
-                firstDigit = 8
-                break
-            }
-            line.substring(i).startsWith("nine") -> {
-                firstDigit = 9
-                break
-            }
-            line[i].isDigit() -> {
-                firstDigit = line[i].toString().toInt()
-                break
-            }
+    for (i in line.indices) {
+        val d = isDigit(line.substring(i))
+        if (d != null) {
+            firstDigit = d
+            break
         }
     }
     var lastDigit = 0
     for (i in line.length - 1 downTo 0) {
-        when {
-            line.substring(i).startsWith("one") -> {
-                lastDigit = 1
-                break
-            }
-            line.substring(i).startsWith("two") -> {
-                lastDigit = 2
-                break
-            }
-            line.substring(i).startsWith("three") -> {
-                lastDigit = 3
-                break
-            }
-            line.substring(i).startsWith("four") -> {
-                lastDigit = 4
-                break
-            }
-            line.substring(i).startsWith("five") -> {
-                lastDigit = 5
-                break
-            }
-            line.substring(i).startsWith("six") -> {
-                lastDigit = 6
-                break
-            }
-            line.substring(i).startsWith("seven") -> {
-                lastDigit = 7
-                break
-            }
-            line.substring(i).startsWith("eight") -> {
-                lastDigit = 8
-                break
-            }
-            line.substring(i).startsWith("nine") -> {
-                lastDigit = 9
-                break
-            }
-            line[i].isDigit() -> {
-                lastDigit = line[i].toString().toInt()
-                break
-            }
+        val d = isDigit(line.substring(i))
+        if (d != null) {
+            lastDigit = d
+            break
         }
     }
     return firstDigit * 10 + lastDigit
+}
+
+fun isDigit(str: String): Int? {
+    return when {
+        str.startsWith("one") -> 1
+        str.startsWith("two") -> 2
+        str.startsWith("three") -> 3
+        str.startsWith("four") -> 4
+        str.startsWith("five") -> 5
+        str.startsWith("six") -> 6
+        str.startsWith("seven") -> 7
+        str.startsWith("eight") -> 8
+        str.startsWith("nine") -> 9
+        str[0].isDigit() -> str[0].code - '0'.code
+        else -> null
+    }
 }
