@@ -13,21 +13,21 @@ abstract class BaseDay(fileName: String) {
      */
     fun run() {
         val result1 = runPart1()
-        val result2 = runPart2()
-
         println("Part 1: $result1")
+
+        val result2 = runPart2()
         println("Part 2: $result2")
     }
 
     /**
      * Run the part 1 of the day and return the result
      */
-    abstract fun runPart1(): Int
+    abstract fun runPart1(): Any
 
     /**
      * Run the part 2 of the day and return the result
      */
-    abstract fun runPart2(): Int
+    abstract fun runPart2(): Any
 
 
 }
