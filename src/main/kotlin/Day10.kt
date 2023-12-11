@@ -1,6 +1,6 @@
 import kotlin.math.abs
 import kotlin.math.ceil
-
+import util.Point
 
 /**
  * Main method to read the file and give the result
@@ -102,19 +102,6 @@ class Day10(fileName: String) : BaseDay(fileName) {
         }
 
         return visited
-    }
-
-    data class Point(val x: Int, val y: Int) {
-        override fun equals(other: Any?): Boolean {
-            if (other is Point) {
-                return x == other.x && y == other.y
-            }
-            return false
-        }
-
-        override fun hashCode(): Int {
-            return x.hashCode() + y.hashCode()
-        }
     }
 
     private fun Point.isConnected(other: Point): Boolean {
