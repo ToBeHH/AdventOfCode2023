@@ -20,7 +20,7 @@ class Day12Test {
         assertEquals(listOf(4,1,1), Day12.Row("####.#...#...", listOf(4,1,1)).parseLine("####.#...#..."))
 
         val readRows = d.readRows(1)
-        assertEquals(1, readRows[0].possibleArrangements())
+        assertEquals(1, readRows[0].countPossibleArrangements())
     }
 
     @org.junit.jupiter.api.Test

@@ -1,3 +1,6 @@
+import util.Cache
+import util.PerpetualCache
+
 /**
  * Main method to read the file and give the result
  */
@@ -8,11 +11,11 @@ fun main() {
 class Day12(fileName: String) : BaseDay(fileName) {
 
     override fun runPart1(): Long {
-        return readRows(1).sumOf(Row::possibleArrangements)
+        return readRows(1).sumOf(Row::countPossibleArrangements)
     }
 
     override fun runPart2(): Long {
-        return readRows(5).sumOf(Row::possibleArrangements)
+        return readRows(5).sumOf(Row::countPossibleArrangements)
     }
 
     internal fun readRows(fold: Int): List<Row> {
@@ -20,31 +23,61 @@ class Day12(fileName: String) : BaseDay(fileName) {
     }
 
     data class Row(val row: String, val possibleArrangements: List<Int>) {
-        fun possibleArrangements(): Long {
-            var count: Long = 0
+        // storing everything in a cache to speed up the process
+        // actually this is quite vital as the app would otherwise run for hours
+        var cache: Cache = PerpetualCache()
 
-            // The possible arrangements form a binary tree, so we can use a stack to traverse it
-            val stack = mutableListOf<String>()
-            stack.add(row)
-            while (stack.isNotEmpty()) {
-                val current = stack.removeAt(0)
-                val index = current.indexOf('?')
-                if (index >= 0) {
-                    stack.add(current.replaceRange(index, index + 1, "."))
-                    stack.add(current.replaceRange(index, index + 1, "#"))
+        fun countPossibleArrangements(): Long {
+            // re-init cache
+            cache.clear()
+            // adding the extra . for better EOL handling
+            return numSolutions("$row.", possibleArrangements)
+        }
+
+        /**
+         * Recursive function to count the number of solutions
+         *
+         * With a lot of help from https://github.com/fuglede/adventofcode/blob/fdd8d90dd4bf4bd6312b53028972479827c07207/2023/day12/solutions.py#L8
+         */
+        private fun numSolutions(s: String, sizes: List<Int>, numDoneInGroup: Int = 0): Long {
+            val key = "$s-$sizes-$numDoneInGroup"
+
+            if (cache[key] != null) {
+                return cache[key] as Long
+            }
+
+            if (s.isEmpty()) {
+                val ret = if (sizes.isEmpty() && numDoneInGroup == 0) 1L else 0L
+                cache.set(key, ret)
+                return ret
+            }
+            var numSols = 0L
+            // If next letter is a "?", we branch
+            val possible = if (s[0] == '?') listOf('.', '#') else listOf(s[0])
+            for (c in possible) {
+                if (c == '#') {
+                    // Extend current group
+                    numSols += numSolutions(s.substring(1), sizes, numDoneInGroup + 1)
                 } else {
-                    if (parseLine(current) == possibleArrangements) {
-                        count++
+                    if (numDoneInGroup > 0) {
+                        if (sizes.isNotEmpty() && sizes[0] == numDoneInGroup) {
+                            // If we were in a group that can be closed, close it
+                            numSols += numSolutions(s.substring(1), sizes.subList(1, sizes.size))
+                        }
+                    } else {
+                        // If we are not in a group, move on to next symbol
+                        numSols += numSolutions(s.substring(1), sizes)
                     }
                 }
             }
-            return count
+            cache.set(key, numSols)
+            return numSols
         }
 
-        fun parseLine(data: String) : List<Int> {
+        fun parseLine(data: String): List<Int> {
             var count = 0
             val result = mutableListOf<Int>()
-            for(i in 0..<data.length) {
+            data.indices.forEach { i ->
                 if (data[i] == '#') {
                     count++
                 }
@@ -70,6 +103,9 @@ class Day12(fileName: String) : BaseDay(fileName) {
                 val arrangementData = mutableListOf<Int>()
                 (0..<fold).forEach {
                     rowData += rawRowData
+                    if (it < (fold - 1)) {
+                        rowData += "?" // Add a separator
+                    }
                     arrangementData.addAll(rawArrangementData)
                 }
 
