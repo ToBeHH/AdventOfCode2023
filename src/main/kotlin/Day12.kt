@@ -25,7 +25,7 @@ class Day12(fileName: String) : BaseDay(fileName) {
     data class Row(val row: String, val possibleArrangements: List<Int>) {
         // storing everything in a cache to speed up the process
         // actually this is quite vital as the app would otherwise run for hours
-        var cache: Cache = PerpetualCache()
+        private var cache: Cache = PerpetualCache()
 
         fun countPossibleArrangements(): Long {
             // re-init cache
@@ -48,7 +48,7 @@ class Day12(fileName: String) : BaseDay(fileName) {
 
             if (s.isEmpty()) {
                 val ret = if (sizes.isEmpty() && numDoneInGroup == 0) 1L else 0L
-                cache.set(key, ret)
+                cache[key] = ret
                 return ret
             }
             var numSols = 0L
@@ -70,7 +70,7 @@ class Day12(fileName: String) : BaseDay(fileName) {
                     }
                 }
             }
-            cache.set(key, numSols)
+            cache[key] = numSols
             return numSols
         }
 

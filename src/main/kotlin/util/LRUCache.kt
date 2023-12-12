@@ -3,7 +3,8 @@ package util
 /**
  * Cache to store only the last recently used items (LRU)
  *
- * @see https://kezhenxu94.medium.com/how-to-build-your-own-cache-in-kotlin-1b0e86005591
+ * @see <a href="https://kezhenxu94.medium.com/how-to-build-your-own-cache-in-kotlin-1b0e86005591">How to build your own cache, in Kotlin</a>
+ *
  */
 class LRUCache(private val delegate: Cache, private val minimalSize: Int = DEFAULT_SIZE) : Cache {
     private val keyMap = object : LinkedHashMap<Any, Any>(minimalSize, .75f, true) {

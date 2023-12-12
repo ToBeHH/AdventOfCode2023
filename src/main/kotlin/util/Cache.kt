@@ -3,7 +3,7 @@ package util
 /**
  * Generic cache interface
  *
- * @see https://kezhenxu94.medium.com/how-to-build-your-own-cache-in-kotlin-1b0e86005591
+ * @see <a href="https://kezhenxu94.medium.com/how-to-build-your-own-cache-in-kotlin-1b0e86005591">How to build your own cache, in Kotlin</a>
  */
 interface Cache {
     /**
