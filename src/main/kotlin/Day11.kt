@@ -26,34 +26,26 @@ class Day11(fileName: String) : BaseDay(fileName) {
     }
 
     internal fun readStars(): List<Point> {
-        val stars = mutableListOf<Point>()
-        for (y in lines.indices) {
-            for (x in lines.first().indices) {
-                if (lines[y][x] == '#') {
-                    stars.add(Point(x, y))
+        return lines.flatMapIndexed { y, line ->
+            line.mapIndexedNotNull { x, c ->
+                if (c == '#') {
+                    Point(x, y)
+                } else {
+                    null
                 }
             }
         }
-        return stars
     }
 
     internal fun expandGalaxy(stars: List<Point>, factor: Int) {
         for (y in lines.size - 1 downTo 0) {
             if (lines[y].all { it == '.' }) {
-                for (star in stars) {
-                    if (star.y > y) {
-                        star.y += (factor - 1)
-                    }
-                }
+                stars.filter { it.y > y }.forEach { it.y += (factor - 1) }
             }
         }
         for (x in lines.first().length - 1 downTo 0) {
             if (lines.all { it[x] == '.' }) {
-                for (star in stars) {
-                    if (star.x > x) {
-                        star.x += (factor - 1)
-                    }
-                }
+                stars.filter { it.x > x }.forEach { it.x += (factor - 1) }
             }
         }
     }
