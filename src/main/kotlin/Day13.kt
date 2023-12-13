@@ -58,9 +58,9 @@ class Day13(fileName: String) : BaseDay(fileName) {
             for (row2 in end - 1 downTo row1 + 1) {
                 if (eq(row1, row2) <= smudged) {
                     // we might have a pattern here
-                    val found = findPattern(row1, row2, eq)
-                    if (found != null) {
-                        return found
+                    findPattern(row1, row2, eq)?.let {
+                        // return, if findPattern found something, otherwise continue loop
+                        return it
                     }
                 }
             }
@@ -71,9 +71,9 @@ class Day13(fileName: String) : BaseDay(fileName) {
             for (row1 in 0..<endM) {
                 if (eq(row1, endM) <= smudged) {
                     // we might have a pattern here
-                    val found = findPattern(row1, endM, eq)
-                    if (found != null) {
-                        return found
+                    findPattern(row1, endM, eq)?.let {
+                        // return, if findPattern found something, otherwise continue loop
+                        return it
                     }
                 }
             }
