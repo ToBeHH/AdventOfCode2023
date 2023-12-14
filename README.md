@@ -21,3 +21,4 @@ To quote from the [website](https://adventofcode.com/2023/about):
 * [Day 11: Cosmic Expansion](doc/day11.md) - https://adventofcode.com/2023/day/11
 * [Day 12: Hot Springs](doc/day12.md) - https://adventofcode.com/2023/day/12
 * [Day 13: Point of Incidence](doc/day13.md) - https://adventofcode.com/2023/day/13
+* [Day 14: Parabolic Reflector Dish](doc/day14.md) - https://adventofcode.com/2023/day/14
