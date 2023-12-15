@@ -1,5 +1,6 @@
 package util
 
+@Suppress("UNCHECKED_CAST")
 class Array2D<T>(val rows: Int, val columns: Int, val array: Array<Array<T>>) {
     companion object {
 
