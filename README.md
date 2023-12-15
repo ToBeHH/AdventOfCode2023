@@ -22,3 +22,4 @@ To quote from the [website](https://adventofcode.com/2023/about):
 * [Day 12: Hot Springs](doc/day12.md) - https://adventofcode.com/2023/day/12
 * [Day 13: Point of Incidence](doc/day13.md) - https://adventofcode.com/2023/day/13
 * [Day 14: Parabolic Reflector Dish](doc/day14.md) - https://adventofcode.com/2023/day/14
+* [Day 15: Lens Library](doc/day15.md) - https://adventofcode.com/2023/day/15
