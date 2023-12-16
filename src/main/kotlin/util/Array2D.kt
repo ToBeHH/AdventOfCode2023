@@ -1,6 +1,6 @@
 package util
 
-@Suppress("UNCHECKED_CAST")
+@Suppress("UNCHECKED_CAST", "unused", "MemberVisibilityCanBePrivate")
 class Array2D<T>(val rows: Int, val columns: Int, val array: Array<Array<T>>) {
     companion object {
 
@@ -33,26 +33,6 @@ class Array2D<T>(val rows: Int, val columns: Int, val array: Array<Array<T>>) {
         array[pair.first][pair.second] = value
     }
 
-    fun rotateArrayClockwise(): Array2D<T> {
-        val rotatedArray = Array2D<Any?>(columns, rows) { x, y -> array[x][y] } as Array2D<T>
-        for (i in 0..<columns) {
-            for (j in rows - 1 downTo 0) {
-                rotatedArray[i, rows - j - 1] = array[j][i]
-            }
-        }
-        return rotatedArray
-    }
-
-    fun rotateArrayCounterClockwise(): Array2D<T> {
-        val rotatedArray = Array2D<Any?>(columns, rows) { x, y -> array[x][y] } as Array2D<T>
-        for (i in columns - 1 downTo 0) {
-            for (j in 0..<rows) {
-                rotatedArray[columns - i - 1, j] = array[j][i]
-            }
-        }
-        return rotatedArray
-    }
-
     inline fun forEach(operation: (T) -> Unit) {
         array.forEach { row -> row.forEach { operation.invoke(it) } }
     }
@@ -61,16 +41,20 @@ class Array2D<T>(val rows: Int, val columns: Int, val array: Array<Array<T>>) {
         array.forEachIndexed { x, p -> p.forEachIndexed { y, t -> operation.invoke(x, y, t) } }
     }
 
+    inline fun forEachIndexed(operation: (coordinates: Pair<Int, Int>, T) -> Unit) {
+        array.forEachIndexed { x, p -> p.forEachIndexed { y, t -> operation.invoke(Pair(x, y), t) } }
+    }
+
     inline fun map(operation: (T) -> Unit): Array2D<Unit> {
-        val newArray = Array2D<Unit>(rows, columns) { x, y -> array[x][y] }
-        array.forEachIndexed { x, p -> p.forEachIndexed { y, t -> newArray[x, y] = operation.invoke(t) } }
-        return newArray
+        return Array2D<Unit>(rows, columns) { x, y -> operation.invoke(array[x][y]) }
     }
 
     inline fun mapIndexed(operation: (x: Int, y: Int, T) -> Unit): Array2D<Unit> {
-        val newArray = Array2D<Unit>(rows, columns) { x, y -> array[x][y] }
-        array.forEachIndexed { x, p -> p.forEachIndexed { y, t -> newArray[x, y] = operation.invoke(x, y, t) } }
-        return newArray
+        return Array2D<Unit>(rows, columns) { x, y -> operation.invoke(x, y, array[x][y]) }
+    }
+
+    inline fun mapIndexed(operation: (coordinates: Pair<Int, Int>, T) -> Unit): Array2D<Unit> {
+        return Array2D<Unit>(rows, columns) { x, y -> operation.invoke(Pair(x, y), array[x][y]) }
     }
 
     inline fun sumOf(operation: (T) -> Int): Int {
@@ -81,6 +65,26 @@ class Array2D<T>(val rows: Int, val columns: Int, val array: Array<Array<T>>) {
 
     fun clone(): Array2D<T> {
         return Array2D<Any?>(rows, columns) { x, y -> array[x][y] } as Array2D<T>
+    }
+
+    fun rotateArrayClockwise(): Array2D<T> {
+        val rotatedArray = Array2D<Any?>(columns, rows) as Array2D<T>
+        for (i in 0..<columns) {
+            for (j in rows - 1 downTo 0) {
+                rotatedArray[i, rows - j - 1] = array[j][i]
+            }
+        }
+        return rotatedArray
+    }
+
+    fun rotateArrayCounterClockwise(): Array2D<T> {
+        val rotatedArray = Array2D<Any?>(columns, rows) as Array2D<T>
+        for (i in columns - 1 downTo 0) {
+            for (j in 0..<rows) {
+                rotatedArray[columns - i - 1, j] = array[j][i]
+            }
+        }
+        return rotatedArray
     }
 
     override fun toString(): String {
