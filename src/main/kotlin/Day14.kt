@@ -27,7 +27,7 @@ class Day14(fileName: String) : BaseDay(fileName) {
                 data = data.rotateArrayClockwise()
             }
 
-            val key = data.toString().hashCode()
+            val key = data.hashCode()
             if (cache[key] != null) {
                 // cycle detected
                 val cycleLen = cycle - cache[key] as Long
@@ -53,7 +53,7 @@ class Day14(fileName: String) : BaseDay(fileName) {
     fun tiltPlatformNorth(input: Array2D<Char>): Array2D<Char> {
         val result = input.clone()
         val numberOfLines = input.rows
-        for (x in 0..<input.columns) {
+        for (x in input.columnIndices) {
             var northernmostPoint : Int? = null
             var y  = 0
             while (y < numberOfLines) {
@@ -84,13 +84,13 @@ class Day14(fileName: String) : BaseDay(fileName) {
     }
 
     fun calculateWeight(stones: Array2D<Char>): Int {
-        var result = 0
-        stones.forEachIndexed { row, _, c ->
+        return stones.sumOfIndexed { row, _, c ->
             if (c == 'O') {
-                result += (stones.rows - row)
+                (stones.rows - row)
+            } else {
+                0
             }
         }
-        return result
     }
 
 }
