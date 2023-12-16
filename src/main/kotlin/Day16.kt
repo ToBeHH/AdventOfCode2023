@@ -29,8 +29,12 @@ class Day16(fileName: String) : BaseDay(fileName) {
     }
 
     fun followBeam(startPos: Pair<Int, Int>, startDirection: Direction): Int {
+        val fieldWidth = lines[0].length
+        val fieldHeight = lines.size
         // memorize all the fields, the bean has hit
-        val energized = Array2D<Energized>(lines[0].length, lines.size) { _, _ -> Energized() }
+        val energized = Array2D<Energized>(fieldWidth, fieldHeight) { _, _ -> Energized() }
+        // use a 2D Array for the field
+        val field = Array2D<Char>(fieldWidth, fieldHeight) { x, y -> lines[y][x] }
         // all the possible routes to take
         val stack = mutableListOf<Beam>()
         // start in the top left corner facing right
@@ -40,7 +44,7 @@ class Day16(fileName: String) : BaseDay(fileName) {
             // get the first beam from the stack and move it
             val beam = stack.removeAt(0).move()
             // if beam still within the field
-            if (beam.position.first >= 0 && beam.position.first < lines[0].length && beam.position.second >= 0 && beam.position.second < lines.size) {
+            if (beam.position.first in 0..<fieldWidth && beam.position.second in 0..<fieldHeight) {
                 // if this field has already been energized by a beam in exactly this direction
                 if (energized[beam.position].isEnergized(beam.direction)) {
                     // if beam is energized, we can skip it
@@ -50,7 +54,7 @@ class Day16(fileName: String) : BaseDay(fileName) {
                 energized[beam.position].energize(beam.direction)
 
                 // move beam to the next field
-                when (lines[beam.position.second][beam.position.first]) {
+                when (field[beam.position]) {
                     '\\' -> stack.add(Beam(beam.position, Direction.mirrorTLBR(beam.direction)))
                     '/' -> stack.add(Beam(beam.position, Direction.mirrorTRBL(beam.direction)))
                     '.' -> stack.add(beam)
@@ -63,15 +67,13 @@ class Day16(fileName: String) : BaseDay(fileName) {
                         stack.add(Beam(beam.position, Direction.DOWN))
                     }
 
-                    '-' -> {
-                        if (beam.direction == Direction.LEFT || beam.direction == Direction.RIGHT) {
-                            // go unchanged
-                            stack.add(beam)
-                        } else {
-                            // split into two beams
-                            stack.add(Beam(beam.position, Direction.LEFT))
-                            stack.add(Beam(beam.position, Direction.RIGHT))
-                        }
+                    '-' -> if (beam.direction == Direction.LEFT || beam.direction == Direction.RIGHT) {
+                        // go unchanged
+                        stack.add(beam)
+                    } else {
+                        // split into two beams
+                        stack.add(Beam(beam.position, Direction.LEFT))
+                        stack.add(Beam(beam.position, Direction.RIGHT))
                     }
                 }
             }
