@@ -12,7 +12,8 @@ class Day15(fileName: String) : BaseDay(fileName) {
     }
 
     override fun runPart2(): Int {
-        val boxes = Array(256) { mutableListOf<Lens>()}
+        // we need a linked map to keep the order of the lenses
+        val boxes = Array(256) { linkedMapOf<String, Lens>() }
         // parse the input
         lines[0].split(",").forEach { data ->
             // the labels have variable lengths, so we need to find the operation
@@ -22,24 +23,21 @@ class Day15(fileName: String) : BaseDay(fileName) {
             val boxNr = hashString(label)
             when (operation) {
                 '=' -> {
+                    // focal length is only given with the '=' operation
                     val focalLength = data.substring(operationIndex+1).toInt()
-                    if (boxes[boxNr].any { it.label == label }) {
-                        // replace box as label already exists
-                        boxes[boxNr] = boxes[boxNr].map { if (it.label == label) Lens(label, focalLength) else it }.toMutableList()
-                    } else {
-                        // add to box
-                        boxes[boxNr].add(Lens(label, focalLength))
-                    }
+                    // as this is a hashmap, it will replace the value if the key already exists
+                    boxes[boxNr][label] = Lens(label, focalLength)
                 }
                 '-' -> {
                     // remove from box
-                    boxes[boxNr].removeAll { it.label == label }
+                    boxes[boxNr].remove(label)
                 }
             }
         }
 
-        return boxes.mapIndexed { index, lst ->
-            lst.mapIndexed { ix, l -> l.focalLength * (ix + 1) }.sum() * (index + 1)
+        // calculate the sum of all boxes of all focal lengths multiplied by the lens index
+        return boxes.mapIndexed { index, box ->
+            box.entries.mapIndexed { idx, entry -> entry.value.focalLength * (idx + 1) }.sum() * (index + 1)
         }.sum()
     }
 
