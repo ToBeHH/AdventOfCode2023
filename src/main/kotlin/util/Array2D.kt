@@ -21,8 +21,16 @@ class Array2D<T>(val rows: Int, val columns: Int, val array: Array<Array<T>>) {
         return array[x][y]
     }
 
+    operator fun get(pair: Pair<Int, Int>): T {
+        return array[pair.first][pair.second]
+    }
+
     operator fun set(x: Int, y: Int, value: T) {
         array[x][y] = value
+    }
+
+    operator fun set(pair: Pair<Int, Int>, value: T) {
+        array[pair.first][pair.second] = value
     }
 
     fun rotateArrayClockwise(): Array2D<T> {
@@ -53,16 +61,38 @@ class Array2D<T>(val rows: Int, val columns: Int, val array: Array<Array<T>>) {
         array.forEachIndexed { x, p -> p.forEachIndexed { y, t -> operation.invoke(x, y, t) } }
     }
 
+    inline fun map(operation: (T) -> Unit): Array2D<Unit> {
+        val newArray = Array2D<Unit>(rows, columns) { x, y -> array[x][y] }
+        array.forEachIndexed { x, p -> p.forEachIndexed { y, t -> newArray[x, y] = operation.invoke(t) } }
+        return newArray
+    }
+
+    inline fun mapIndexed(operation: (x: Int, y: Int, T) -> Unit): Array2D<Unit> {
+        val newArray = Array2D<Unit>(rows, columns) { x, y -> array[x][y] }
+        array.forEachIndexed { x, p -> p.forEachIndexed { y, t -> newArray[x, y] = operation.invoke(x, y, t) } }
+        return newArray
+    }
+
+    inline fun sumOf(operation: (T) -> Int): Int {
+        var sum = 0
+        array.forEach { row -> row.forEach { sum += operation.invoke(it) } }
+        return sum
+    }
+
     fun clone(): Array2D<T> {
         return Array2D<Any?>(rows, columns) { x, y -> array[x][y] } as Array2D<T>
     }
 
     override fun toString(): String {
+        return toString({ it.toString() }, " ")
+    }
+
+    fun toString(operation: (T) -> String, separator: String): String {
         val sb = StringBuilder()
         for (i in 0..<rows) {
             for (j in 0..<columns) {
-                sb.append(array[i][j])
-                if (j < (columns - 1)) sb.append(" ")
+                sb.append(operation(array[i][j]))
+                if (j < (columns - 1)) sb.append(separator)
             }
             sb.append("\n")
         }

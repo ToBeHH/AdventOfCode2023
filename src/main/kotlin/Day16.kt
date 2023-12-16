@@ -42,12 +42,12 @@ class Day16(fileName: String) : BaseDay(fileName) {
             // if beam still within the field
             if (beam.position.first >= 0 && beam.position.first < lines[0].length && beam.position.second >= 0 && beam.position.second < lines.size) {
                 // if this field has already been energized by a beam in exactly this direction
-                if (energized[beam.position.first, beam.position.second].isEnergized(beam.direction)) {
+                if (energized[beam.position].isEnergized(beam.direction)) {
                     // if beam is energized, we can skip it
                     continue
                 }
                 // if beam is not energized, we need to energize it
-                energized[beam.position.first, beam.position.second].energize(beam.direction)
+                energized[beam.position].energize(beam.direction)
 
                 // move beam to the next field
                 when (lines[beam.position.second][beam.position.first]) {
@@ -77,9 +77,7 @@ class Day16(fileName: String) : BaseDay(fileName) {
             }
         }
 
-        var sum = 0
-        energized.forEach { if (it.isEnergized()) sum++ }
-        return sum
+        return energized.sumOf { if (it.isEnergized()) 1 else 0 }
     }
 
     data class Beam(val position: Pair<Int, Int>, val direction: Direction) {
