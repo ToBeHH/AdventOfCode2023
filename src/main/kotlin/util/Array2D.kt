@@ -2,6 +2,9 @@ package util
 
 @Suppress("UNCHECKED_CAST", "unused", "MemberVisibilityCanBePrivate")
 class Array2D<T>(val rows: Int, val columns: Int, val array: Array<Array<T>>) {
+    val columnIndices: IntRange = 0..<columns
+    val rowIndices: IntRange = 0..<rows
+
     companion object {
 
         inline operator fun <reified T> invoke() = Array2D(0, 0, Array(0) { emptyArray<T>() })
@@ -60,6 +63,12 @@ class Array2D<T>(val rows: Int, val columns: Int, val array: Array<Array<T>>) {
     inline fun sumOf(operation: (T) -> Int): Int {
         var sum = 0
         array.forEach { row -> row.forEach { sum += operation.invoke(it) } }
+        return sum
+    }
+
+    inline fun sumOfIndexed(operation: (x: Int, y: Int, T) -> Int): Int {
+        var sum = 0
+        array.forEachIndexed { x, row -> row.forEachIndexed { y, it -> sum += operation.invoke(x, y, it) } }
         return sum
     }
 
