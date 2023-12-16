@@ -102,4 +102,22 @@ class Array2D<T>(val rows: Int, val columns: Int, val array: Array<Array<T>>) {
         }
         return sb.toString()
     }
+
+    override fun equals(other: Any?): Boolean {
+        if (other !is Array2D<*>) return false
+        if (other.rows != rows || other.columns != columns) return false
+        for (i in 0..<rows) {
+            for (j in 0..<columns) {
+                if (other[i, j] != array[i][j]) return false
+            }
+        }
+        return true
+    }
+
+    override fun hashCode(): Int {
+        var result = rows
+        result = 31 * result + columns
+        result = 31 * result + array.contentDeepHashCode()
+        return result
+    }
 }
