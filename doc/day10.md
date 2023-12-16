@@ -1,4 +1,7 @@
 # Day 10: Pipe Maze
+
+[![](https://i.redd.it/2023-day-10-ai-art-its-a-new-day-v0-vpa6u553we5c1.jpeg?s=fdfa21a35f516af6af4b8d6453801fbd75ed71f5)](https://www.reddit.com/r/adventofcode/comments/18exdn0/2023_day_10_ai_art_its_a_new_day/)
+
 You use the hang glider to ride the hot air from Desert Island all the way up to the floating metal island. This island is surprisingly cold and there definitely aren't any thermals to glide on, so you leave your hang glider behind.
 
 You wander around for a while, but you don't find any people or animals. However, you do occasionally find signposts labeled "Hot Springs" pointing in a seemingly consistent direction; maybe you can find someone at the hot springs and ask them where the desert-machine parts are made.

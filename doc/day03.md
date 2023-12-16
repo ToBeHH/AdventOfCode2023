@@ -1,4 +1,7 @@
 # Day 3: Gear Ratios
+
+[![](https://i.redd.it/2023-day-3-ai-art-lets-fix-this-v0-wpe23r79l84c1.jpg?s=61d6f5bee0bc1b8b140482f3188898fee62f9eb3)](https://www.reddit.com/r/adventofcode/comments/18afp9b/2023_day_3_ai_art_lets_fix_this/)
+
 You and the Elf eventually reach a gondola lift station; he says the gondola lift will take you up to the **water source**, but this is as far as he can bring you. You go inside.
 
 It doesn't take long to find the gondolas, but there seems to be a problem: they're not moving.

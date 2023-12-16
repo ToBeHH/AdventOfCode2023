@@ -1,4 +1,7 @@
-Day 9: Mirage Maintenance
+# Day 9: Mirage Maintenance
+
+[![](https://i.redd.it/2023-day-9-ai-art-mirage-maintenance-v0-d0fw0c4d5b5c1.png?s=8ed957bed65aed40a6191c6fc718836519043fb3)](https://www.reddit.com/r/adventofcode/comments/18ej01n/2023_day_9_ai_art_mirage_maintenance/)
+
 You ride the camel through the sandstorm and stop where the ghost's maps told you to stop. The sandstorm subsequently subsides, somehow seeing you standing at an **oasis**!
 
 The camel goes to get some water and you stretch your neck. As you look up, you discover what must be yet another giant floating island, this one made of metal! That must be where the **parts to fix the sand machines** come from.

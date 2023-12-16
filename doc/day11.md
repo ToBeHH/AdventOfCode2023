@@ -1,4 +1,7 @@
-#  Day 11: Cosmic Expansion 
+# Day 11: Cosmic Expansion
+
+[![](https://i.redd.it/2023-day-11-ai-art-cosmic-expansion-v0-j9jyg5fznn5c1.png?s=88171b9dc05759e300ecd8360ba300d3f0ed377d)](https://www.reddit.com/r/adventofcode/comments/18fsymt/2023_day_11_ai_art_cosmic_expansion/)
+
 You continue following signs for "Hot Springs" and eventually come across an observatory. The Elf within turns out to be a researcher studying cosmic expansion using the giant telescope here.
 
 He doesn't know anything about the missing machine parts; he's only visiting for this research project. However, he confirms that the hot springs are the next-closest area likely to have people; he'll even take you straight there once he's done with today's observation analysis.

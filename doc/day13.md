@@ -1,4 +1,7 @@
 ## Day 13: Point of Incidence
+
+[![](https://i.redd.it/2023-day-13-ai-art-v0-102oy184o16c1.png?s=09881b3ae13ba5d3833773e64ac70eee146e8f8b)](https://www.reddit.com/r/adventofcode/comments/18heffp/2023_day_13ai_art/)
+
 With your help, the hot springs team locates an appropriate spring which launches you neatly and precisely up to the edge of **Lava Island**.
 
 There's just one problem: you don't see any **lava**.

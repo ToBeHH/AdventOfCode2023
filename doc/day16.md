@@ -1,5 +1,7 @@
 # Day 16: The Floor Will Be Lava
 
+[![](https://preview.redd.it/2023-day-16-ai-art-v0-5f7dn0wxtm6c1.png?width=640&crop=smart&auto=webp&s=705bb5715261e493b7bc4bf87fa3838b5d1b5d0b)](https://www.reddit.com/r/adventofcode/comments/18jobf3/2023_day_16ai_art/)
+
 With the beam of light completely focused **somewhere**, the reindeer leads you deeper still into the Lava Production
 Facility. At some point, you realize that the steel facility walls have been replaced with cave, and the doorways are
 just cave, and the floor is cave, and you're pretty sure this is actually just a giant cave.

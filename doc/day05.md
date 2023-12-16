@@ -1,5 +1,7 @@
 # Day 5: If You Give A Seed A Fertilizer 
 
+[![](https://i.redd.it/2023-day-5-ai-art-lets-find-some-seeds-v0-nkycaxtjch4c1.jpg?s=b4f9e404c78592297c0362873ae98f304bc600f6)](https://www.reddit.com/r/adventofcode/comments/18bc70e/2023_day_5_ai_art_lets_find_some_seeds/)
+
 You take the boat and find the gardener right where you were told he would be: managing a giant "garden" that looks more to you like a farm.
 
 "A water source? Island Island is the water source!" You point out that Snow Island isn't receiving any water.

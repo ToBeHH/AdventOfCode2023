@@ -1,4 +1,7 @@
 # Day 15: Lens Library
+
+[![](https://i.redd.it/2023-day-15-ai-art-v0-8ore213mbe6c1.jpeg?s=edd35f4d0e691bea00d9368fc7c754dc52179de9)](https://www.reddit.com/r/adventofcode/comments/18isydn/2023_day_15_ai_art/)
+
 The newly-focused parabolic reflector dish is sending all of the collected light to a point on the side of yet another mountain - the largest mountain on Lava Island. As you approach the mountain, you find that the light is being collected by the wall of a large facility embedded in the mountainside.
 
 You find a door under a large sign that says "Lava Production Facility" and next to a smaller sign that says "Danger - Personal Protective Equipment required beyond this point".

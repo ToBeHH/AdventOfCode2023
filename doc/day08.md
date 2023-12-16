@@ -1,4 +1,7 @@
 # Day 8: Haunted Wasteland
+
+[![](https://i.redd.it/2023-day-8-ai-art-haunted-wasteland-v0-vrygjlhbe35c1.png?s=41b0b35dd561772acfb20573da1f237241e50c06)](https://www.reddit.com/r/adventofcode/comments/18dpq39/2023_day_8_ai_art_haunted_wasteland/)
+
 You're still riding a camel across Desert Island when you spot a sandstorm quickly approaching. When you turn to warn the Elf, she disappears before your eyes! To be fair, she had just finished warning you about **ghosts** a few minutes ago.
 
 One of the camel's pouches is labeled "maps" - sure enough, it's full of documents (your puzzle input) about how to navigate the desert. At least, you're pretty sure that's what they are; one of the documents contains a list of left/right instructions, and the rest of the documents seem to describe some kind of **network** of labeled nodes.

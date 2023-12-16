@@ -1,4 +1,7 @@
 # Day 14: Parabolic Reflector Dish
+
+[![](https://preview.redd.it/2023-day-14-ai-art-v0-x7kp3xev986c1.png?width=640&crop=smart&auto=webp&s=6fdcf320f228da2aa975c225e954b8b8b4bf0bcb)](https://www.reddit.com/r/adventofcode/comments/18i4ri5/2023_day_14ai_art/)
+
 You reach the place where all of the mirrors were pointing: a massive parabolic reflector dish attached to the side of another large mountain.
 
 The dish is made up of many small mirrors, but while the mirrors themselves are roughly in the shape of a parabolic reflector dish, each individual mirror seems to be pointing in slightly the wrong direction. If the dish is meant to focus light, all it's doing right now is sending it in a vague direction.

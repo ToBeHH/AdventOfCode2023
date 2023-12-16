@@ -1,4 +1,7 @@
-# Day 12: Hot Springs
+# Day 12:
+
+[![](https://i.redd.it/2023-day-12-ai-art-v0-w1sqox75cv5c1.png?s=40e2114b991440ca746a7cb45ec198e700c174a1)](https://www.reddit.com/r/adventofcode/comments/18gm94o/2023_day_12_ai_art/)
+
 You finally reach the hot springs! You can see steam rising from secluded areas attached to the primary, ornate building.
 
 As you turn to enter, the researcher stops you. "Wait - I thought you were looking for the hot springs, weren't you?" You indicate that this definitely looks like hot springs to you.

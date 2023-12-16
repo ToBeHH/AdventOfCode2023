@@ -1,4 +1,7 @@
-# Day 1: Trebuchet?! 
+# Day 1: Trebuchet?!
+
+[![](https://i.redd.it/ai-imagine-advent-of-code-2022-day-1-v0-1dsydbn5783a1.png?s=fa85d9e40c24d349627b788fadcb90fbb4ee2355)](https://www.reddit.com/r/adventofcode/comments/z9g0i0/ai_imagine_advent_of_code_2022_day_1/)
+
 Something is wrong with global snow production, and you've been selected to take a look. The Elves have even given you a map; on it, they've used stars to mark the top fifty locations that are likely to be having problems.
 
 You've been doing this long enough to know that to restore snow operations, you need to check all **fifty stars** by December 25th.

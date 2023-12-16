@@ -1,4 +1,7 @@
-# Day 4: Scratchcards 
+# Day 4: Scratchcards
+
+[![](https://i.redd.it/2023-day-4-ai-art-scratchcards-v0-c7o18i2k8a4c1.png?s=f03c74adc49790133092465c8d4219cf3865a31e)](https://www.reddit.com/r/adventofcode/comments/18akjce/2023_day_4_ai_art_scratchcards/)
+
 The gondola takes you up. Strangely, though, the ground doesn't seem to be coming with you; you're not climbing a mountain. As the circle of Snow Island recedes below you, an entire new landmass suddenly appears above you! The gondola carries you to the surface of the new island and lurches into the station.
 
 As you exit the gondola, the first thing you notice is that the air here is much **warmer** than it was on Snow Island. It's also quite **humid**. Is this where the water source is?

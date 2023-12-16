@@ -1,4 +1,7 @@
 # Day 7: Camel Cards
+
+[![](https://i.redd.it/2023-day-7-ai-art-camel-cards-v0-yk00foel5w4c1.png?s=6cadb9d7833d1ccbb745212a9f7265a9a8759d45)](https://www.reddit.com/r/adventofcode/comments/18cy1uj/2023_day_7_ai_art_camel_cards/)
+
 Your all-expenses-paid trip turns out to be a one-way, five-minute ride in an airship. (At least it's a **cool** airship!) It drops you off at the edge of a vast desert and descends back to Island Island.
 
 "Did you bring the parts?"

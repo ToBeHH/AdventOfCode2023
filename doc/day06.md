@@ -1,4 +1,7 @@
 ## Day 6: Wait For It
+
+[![](https://i.redd.it/2023-day-6-ai-art-wait-for-it-v0-7crigwvt7o4c1.png?s=f41892cd6de28a4f195fda27c308554fbe93d039)](https://www.reddit.com/r/adventofcode/comments/18c3889/2023_day_6_ai_art_wait_for_it/)
+
 The ferry quickly brings you across Island Island. After asking around, you discover that there is indeed normally a large pile of sand somewhere near here, but you don't see anything besides lots of water and the small island where the ferry has docked.
 
 As you try to figure out what to do next, you notice a poster on a wall near the ferry dock. "Boat races! Open to the public! Grand prize is an all-expenses-paid trip to **Desert Island**!" That must be where the sand comes from! Best of all, the boat races are starting in just a few minutes.
