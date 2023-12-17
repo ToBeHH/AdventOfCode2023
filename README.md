@@ -24,3 +24,4 @@ To quote from the [website](https://adventofcode.com/2023/about):
 * [Day 14: Parabolic Reflector Dish](doc/day14.md) - https://adventofcode.com/2023/day/14
 * [Day 15: Lens Library](doc/day15.md) - https://adventofcode.com/2023/day/15
 * [Day 16: The Floor Will Be Lava](doc/day16.md) - https://adventofcode.com/2023/day/16
+* [Day 17: Clumsy Crucible](doc/day17.md) - https://adventofcode.com/2023/day/17

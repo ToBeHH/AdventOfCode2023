@@ -1,4 +1,5 @@
 import org.junit.jupiter.api.Assertions.assertEquals
+import util.Direction
 
 class Day16Test {
 
@@ -6,7 +7,7 @@ class Day16Test {
     fun testReadData() {
         val d = Day16("day16sample.txt")
         // start process for debugging
-        d.followBeam(Pair(-1, 0), Day16.Direction.RIGHT)
+        d.followBeam(Pair(-1, 0), Direction.RIGHT)
     }
 
     @org.junit.jupiter.api.Test
