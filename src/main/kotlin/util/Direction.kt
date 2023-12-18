@@ -27,6 +27,24 @@ enum class Direction {
         }
     }
 
+    fun turnRight(): Direction {
+        return when (this) {
+            UP -> RIGHT
+            DOWN -> LEFT
+            LEFT -> UP
+            RIGHT -> DOWN
+        }
+    }
+
+    fun turnLeft(): Direction {
+        return when (this) {
+            UP -> LEFT
+            DOWN -> RIGHT
+            LEFT -> DOWN
+            RIGHT -> UP
+        }
+    }
+
     companion object {
         /**
          * Convert a pair to a direction
@@ -38,6 +56,16 @@ enum class Direction {
                 Pair(-1, 0) -> LEFT
                 Pair(1, 0) -> RIGHT
                 else -> throw IllegalArgumentException("Invalid pair: $pair")
+            }
+        }
+
+        fun fromChar(char: Char): Direction {
+            return when (char) {
+                '^', 'U', 'N' -> UP
+                'v', 'D', 'S' -> DOWN
+                '<', 'L', 'W' -> LEFT
+                '>', 'R', 'E' -> RIGHT
+                else -> throw IllegalArgumentException("Invalid char: $char")
             }
         }
 

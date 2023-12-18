@@ -102,9 +102,9 @@ class Array2D<T>(val rows: Int, val columns: Int, val array: Array<Array<T>>) {
 
     fun toString(operation: (T) -> String, separator: String): String {
         val sb = StringBuilder()
-        for (i in 0..<rows) {
-            for (j in 0..<columns) {
-                sb.append(operation(array[i][j]))
+        for (i in columnIndices) {
+            for (j in rowIndices) {
+                sb.append(operation(array[j][i]))
                 if (j < (columns - 1)) sb.append(separator)
             }
             sb.append("\n")
@@ -115,8 +115,8 @@ class Array2D<T>(val rows: Int, val columns: Int, val array: Array<Array<T>>) {
     override fun equals(other: Any?): Boolean {
         if (other !is Array2D<*>) return false
         if (other.rows != rows || other.columns != columns) return false
-        for (i in 0..<rows) {
-            for (j in 0..<columns) {
+        for (i in rowIndices) {
+            for (j in columnIndices) {
                 if (other[i, j] != array[i][j]) return false
             }
         }
