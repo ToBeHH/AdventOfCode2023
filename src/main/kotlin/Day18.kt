@@ -30,7 +30,7 @@ class Day18(fileName: String) : BaseDay(fileName) {
                 '1' -> Direction.DOWN
                 '2' -> Direction.LEFT
                 '3' -> Direction.UP
-                else -> throw IllegalArgumentException("Invalid direction: ${lineParts[2][6]}")
+                else -> throw IllegalArgumentException("Invalid direction: ${lineParts[2][7]}")
             }
             val distance = lineParts[2].substring(2, 7).toLong(radix = 16)
             Pair(direction, distance)
@@ -64,8 +64,8 @@ class Day18(fileName: String) : BaseDay(fileName) {
 
         // fill to the right or fill on the left?
         val fillRight = countRights > countLefts
-        // the shoelace-formula needs the corners to be in clockwise order
-        // if we need to fill to the right, we need to reverse the order
+        // the shoelace-formula needs the corners to be in anti-clockwise order
+        // if we need to fill to the right, we are running clockwise and therefore we need to reverse the order
         if (fillRight) {
             corners.reverse()
         }
