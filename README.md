@@ -26,3 +26,4 @@ To quote from the [website](https://adventofcode.com/2023/about):
 * [Day 16: The Floor Will Be Lava](doc/day16.md) - https://adventofcode.com/2023/day/16
 * [Day 17: Clumsy Crucible](doc/day17.md) - https://adventofcode.com/2023/day/17
 * [Day 18: Lavaduct Lagoon](doc/day18.md) - https://adventofcode.com/2023/day/18
+* [Day 19: Aplenty](doc/day19.md) - https://adventofcode.com/2023/day/19
