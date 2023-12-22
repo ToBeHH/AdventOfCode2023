@@ -1,7 +1,7 @@
 package util
 
 @Suppress("UNCHECKED_CAST", "unused", "MemberVisibilityCanBePrivate")
-class Array2D<T>(val rows: Int, val columns: Int, val array: Array<Array<T>>) {
+class Array2D<T>(val columns: Int, val rows: Int, val array: Array<Array<T>>) {
     val columnIndices: IntRange = 0..<columns
     val rowIndices: IntRange = 0..<rows
 
@@ -13,27 +13,27 @@ class Array2D<T>(val rows: Int, val columns: Int, val array: Array<Array<T>>) {
             Array2D(xWidth, yWidth, Array(xWidth) { arrayOfNulls<T>(yWidth) })
 
         inline operator fun <reified T> invoke(xWidth: Int, yWidth: Int, operator: (Int, Int) -> (T)): Array2D<T> {
-            val array = Array(xWidth) { x ->
-                Array(yWidth) { operator(x, it) }
+            val array = Array(yWidth) { y ->
+                Array(xWidth) { operator(it, y) }
             }
             return Array2D(xWidth, yWidth, array)
         }
     }
 
     operator fun get(x: Int, y: Int): T {
-        return array[x][y]
+        return array[y][x]
     }
 
     operator fun get(pair: Pair<Int, Int>): T {
-        return array[pair.first][pair.second]
+        return array[pair.second][pair.first]
     }
 
     operator fun set(x: Int, y: Int, value: T) {
-        array[x][y] = value
+        array[y][x] = value
     }
 
     operator fun set(pair: Pair<Int, Int>, value: T) {
-        array[pair.first][pair.second] = value
+        array[pair.second][pair.first] = value
     }
 
     inline fun forEach(operation: (T) -> Unit) {
@@ -41,11 +41,11 @@ class Array2D<T>(val rows: Int, val columns: Int, val array: Array<Array<T>>) {
     }
 
     inline fun forEachIndexed(operation: (x: Int, y: Int, T) -> Unit) {
-        array.forEachIndexed { x, p -> p.forEachIndexed { y, t -> operation.invoke(x, y, t) } }
+        array.forEachIndexed { y, p -> p.forEachIndexed { x, t -> operation.invoke(x, y, t) } }
     }
 
     inline fun forEachIndexed(operation: (coordinates: Pair<Int, Int>, T) -> Unit) {
-        array.forEachIndexed { x, p -> p.forEachIndexed { y, t -> operation.invoke(Pair(x, y), t) } }
+        array.forEachIndexed { y, p -> p.forEachIndexed { x, t -> operation.invoke(Pair(x, y), t) } }
     }
 
     inline fun map(operation: (T) -> Unit): Array2D<Unit> {
@@ -102,10 +102,10 @@ class Array2D<T>(val rows: Int, val columns: Int, val array: Array<Array<T>>) {
 
     fun toString(operation: (T) -> String, separator: String): String {
         val sb = StringBuilder()
-        for (i in columnIndices) {
-            for (j in rowIndices) {
-                sb.append(operation(array[j][i]))
-                if (j < (columns - 1)) sb.append(separator)
+        for (y in rowIndices) {
+            for (x in columnIndices) {
+                sb.append(operation(array[y][x]))
+                if (x < (columns - 1)) sb.append(separator)
             }
             sb.append("\n")
         }
