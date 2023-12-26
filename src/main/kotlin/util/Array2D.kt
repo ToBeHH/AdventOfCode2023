@@ -73,7 +73,7 @@ class Array2D<T>(val columns: Int, val rows: Int, val array: Array<Array<T>>) {
     }
 
     fun clone(): Array2D<T> {
-        return Array2D<Any?>(rows, columns) { x, y -> array[x][y] } as Array2D<T>
+        return Array2D<Any?>(columns, rows) { y, x -> array[x][y] } as Array2D<T>
     }
 
     fun rotateArrayClockwise(): Array2D<T> {

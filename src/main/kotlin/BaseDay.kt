@@ -12,11 +12,13 @@ abstract class BaseDay(fileName: String) {
      * Main method to read the file and give the result
      */
     fun run() {
+        var start = System.currentTimeMillis()
         val result1 = runPart1()
-        println("Part 1: $result1")
+        println("Part 1 in ${System.currentTimeMillis() - start}ms: $result1")
 
+        start = System.currentTimeMillis()
         val result2 = runPart2()
-        println("Part 2: $result2")
+        println("Part 2 in ${System.currentTimeMillis() - start}ms: $result2")
     }
 
     /**
