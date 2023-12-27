@@ -27,5 +27,6 @@ To quote from the [website](https://adventofcode.com/2023/about):
 * [Day 17: Clumsy Crucible](doc/day17.md) - https://adventofcode.com/2023/day/17
 * [Day 18: Lavaduct Lagoon](doc/day18.md) - https://adventofcode.com/2023/day/18
 * [Day 19: Aplenty](doc/day19.md) - https://adventofcode.com/2023/day/19
+* [Day 20: Pulse Propagation](doc/day20.md) - https://adventofcode.com/2023/day/20
 * [Day 21: Step Counter](doc/day21.md) - https://adventofcode.com/2023/day/21
 * [Day 23: A Long Walk](doc/day23.md) - https://adventofcode.com/2023/day/23
