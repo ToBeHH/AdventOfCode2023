@@ -31,3 +31,5 @@ To quote from the [website](https://adventofcode.com/2023/about):
 * [Day 21: Step Counter](doc/day21.md) - https://adventofcode.com/2023/day/21
 * [Day 22: Sand Slabs](doc/day22.md) - https://adventofcode.com/2023/day/22
 * [Day 23: A Long Walk](doc/day23.md) - https://adventofcode.com/2023/day/23
+* [Day 24: Never Tell Me The Odds](doc/day24.md) - https://adventofcode.com/2023/day/24
+* [Day 25: Snowverload](doc/day25.md) - https://adventofcode.com/2023/day/25
