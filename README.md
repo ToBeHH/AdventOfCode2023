@@ -29,4 +29,5 @@ To quote from the [website](https://adventofcode.com/2023/about):
 * [Day 19: Aplenty](doc/day19.md) - https://adventofcode.com/2023/day/19
 * [Day 20: Pulse Propagation](doc/day20.md) - https://adventofcode.com/2023/day/20
 * [Day 21: Step Counter](doc/day21.md) - https://adventofcode.com/2023/day/21
+* [Day 22: Sand Slabs](doc/day22.md) - https://adventofcode.com/2023/day/22
 * [Day 23: A Long Walk](doc/day23.md) - https://adventofcode.com/2023/day/23
